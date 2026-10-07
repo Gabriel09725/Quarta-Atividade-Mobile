@@ -1,72 +1,45 @@
-import * as Device from "expo-device";
-import { Platform, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import Gato from "@/components/Gato";
+import Cachorro from "@/components/Cachorro";
+import Funcionario from "@/components/Funcionario";
+import Aluno from "@/components/Aluno";
+import Multiplicacao from "@/components/Mutiplicacao";
 
-import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
-import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
-
-function getDevMenuHint() {
-  if (Platform.OS === "web") {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === "android" ? "cmd+m (or ctrl+m)" : "cmd+d";
+export default function Index() {
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+    <View style={styles.container}>
+      <Text>Boa noite.</Text>
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title">Hello World!</ThemedText>
-      <ThemedText style={{ marginTop: 10, fontSize: 18, color: "#666" }}>
-        este é meu primeiro app !
-      </ThemedText>
-    </ThemedView>
+      <Gato />
+      <Cachorro nome="Orelha" raca="Caramelo" />
+
+      <Funcionario 
+        nome="Gabriel Mello" 
+        idade={17} 
+        setor="Tecnologia da Informacao" 
+      />
+
+      <Aluno 
+        nome="Gabriel Mello" 
+        idade={17} 
+        turma="2 Ano B" 
+        nota1={8.5} 
+        nota2={7.5} 
+      />
+
+      <Multiplicacao 
+        valor1={2} 
+        valor2={4} 
+        valor3={5} 
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: "center",
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: "center",
-  },
-  code: {
-    textTransform: "uppercase",
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: "stretch",
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
   },
 });
