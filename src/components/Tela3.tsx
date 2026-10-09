@@ -13,7 +13,7 @@ const Tela3 = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.titulo}>BEMVINDO</Text>
-        <Text style={styles.subtitulo}>FULANO</Text>
+        <Text style={styles.subtitulo}>GABRIEL</Text>
       </View>
 
       <View style={styles.centro}>
