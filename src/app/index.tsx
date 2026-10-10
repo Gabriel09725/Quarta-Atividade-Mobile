@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TextInput, Image, Pressable, Alert, Switch } from "react-native";
+import { Text, View, StyleSheet, TextInput, Image, Pressable, Alert, Switch, ScrollView } from "react-native";
 import Gato from "@/components/Gato";
 import Cachorro from "@/components/Cachorro";
 import Funcionario from "@/components/Funcionario";
@@ -11,8 +11,7 @@ import ExemploStyle_View from "@/components/ExemploStyle_View";
 import Tela1 from "@/components/Tela1";
 import Tela2 from "@/components/Tela2";
 import Tela3 from "@/components/Tela3";
-
-
+import AnaliseCredito from "@/components/AnaliseCredito";
 
 export default function Index() {
   const [campo, setCampo] = useState('');
@@ -23,12 +22,39 @@ export default function Index() {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.tituloPrincipal}>Análise de Crédito - Caixa</Text>
 
-      {/* <Pessoa />
+      <AnaliseCredito 
+        nome="Gabriel" 
+        idade={18} 
+        rendaAnual={20000} 
+        possuiClt={true} 
+        possuiDivida={false} 
+      />
 
+      <AnaliseCredito 
+        nome="Jovenilia" 
+        idade={45} 
+        rendaAnual={80000} 
+        possuiClt={false} 
+        possuiDivida={false} 
+      />
+
+      <AnaliseCredito 
+        nome="Vorcaro" 
+        idade={43} 
+        rendaAnual={15000000} 
+        possuiClt={false} 
+        possuiDivida={true} 
+      />
+
+      <View style={styles.divisor} />
+ 
+      <Pessoa />
+{/* 
       <Pressable onPress={acionarPopUp}>
-        <Text>Boa noite.</Text>
+        <Text>Boa noite (PopUp).</Text>
       </Pressable>
 
       <Pressable
@@ -36,7 +62,7 @@ export default function Index() {
           Alert.alert(`Campo: ${campo}`);
           console.log(evento);
         }}>
-        <Text>Boa noite.</Text>
+        <Text>Boa noite (Log Campo).</Text>
       </Pressable>
 
       <Gato />
@@ -61,7 +87,7 @@ export default function Index() {
         source={{
           uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTjK3cRbdtQTCkW_ifOEjQ9ddExudLPwwBE-MViVRBLtYJbOf7zWTnHnHR&s=10'
         }}
-        style={{ width: 200, height: 200, resizeMode: "stretch" }}
+        style={{ width: 200, height: 200, resizeMode: "stretch", marginVertical: 10 }}
       />
 
       <Multiplicacao valor1={2} valor2={4} valor3={5} />
@@ -76,20 +102,33 @@ export default function Index() {
       <Switch
         value={ativado}
         onValueChange={(valor) => { setAtivado(valor) }}
-      />
-      <ExemploStyle_Text />
-      <ExemploStyle_View/> */}
-      {/* <Tela1/> */}
-      {/* <Tela2/> */}
-      <Tela3/>
-    </View>
+      /> */}
+
+      {/* <ExemploStyle_Text /> */}
+      {/* <ExemploStyle_View /> */}
+      
+      {/* <Tela1 /> 
+      <Tela2 /> 
+      <Tela3 />  */}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    paddingVertical: 40,
     alignItems: "center",
     justifyContent: "center",
+  },
+  tituloPrincipal: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 15,
+  },
+  divisor: {
+    height: 1,
+    backgroundColor: "#ccc",
+    width: "80%",
+    marginVertical: 20,
   },
 });

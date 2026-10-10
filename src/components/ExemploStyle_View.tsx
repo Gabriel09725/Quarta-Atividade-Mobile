@@ -1,86 +1,99 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 const ExemploStyle_View = () => {
     return (
-        <>
+        <View style={styles_local.wrapperPrincipal}>
             <View style={styles_local.container_fixo}>
-                <View style={[styles_local.fundo_azul, 
-                    styles_local.tamanho_50, styles_local.borda]} />
-                <View style={[styles_local.fundo_laranja, 
-                    styles_local.tamanho_50, styles_local.borda]} />
-                <View style={[styles_local.fundo_verde, 
-                    styles_local.tamanho_50, styles_local.borda]} />
+                <Text style={styles_local.tituloSecao}>Container Fixo (Row-Reverse)</Text>
+                <View style={styles_local.linhaBlocos}>
+                    <View style={[styles_local.fundo_azul, styles_local.tamanho_50, styles_local.borda]} />
+                    <View style={[styles_local.fundo_laranja, styles_local.tamanho_50, styles_local.borda]} />
+                    <View style={[styles_local.fundo_verde, styles_local.tamanho_50, styles_local.borda]} />
+                </View>
             </View>
             <View style={styles_local.container_flex}>
-                <View style={[styles_local.fundo_azul, 
-                    styles_local.flex_pequeno, styles_local.borda]} />
-                <View style={[styles_local.fundo_laranja, 
-                    styles_local.flex_grande, styles_local.borda]} />
-                <View style={[styles_local.fundo_verde, 
-                    styles_local.flex_grande, styles_local.borda]} />
+                <Text style={styles_local.tituloSecao}>Container Flex (Proporções)</Text>
+                <View style={styles_local.linhaBlocosFlex}>
+                    <View style={[styles_local.fundo_azul, styles_local.flex_pequeno, styles_local.borda]} />
+                    <View style={[styles_local.fundo_laranja, styles_local.flex_grande, styles_local.borda]} />
+                    <View style={[styles_local.fundo_verde, styles_local.flex_grande, styles_local.borda]} />
+                </View>
             </View>
-        </>
+        </View>
     );
 }
 
 export default ExemploStyle_View;
 
 const styles_local = StyleSheet.create({
+    wrapperPrincipal: {
+        width: "100%",
+        padding: 10,
+    },
+    tituloSecao: {
+        fontSize: 14,
+        fontWeight: "bold",
+        color: "#333",
+        marginBottom: 8,
+    },
     container_fixo: {
-        //valor de preenchimento da área disponível
-        flex: 1,
-        //definição do eixo principal
-        flexDirection: 'row-reverse',
-        //posicionamento dos objetos no eixo principal
-        justifyContent: 'space-between',
-        //posicionamento dos objetos no eixo secundário
-        alignItems: 'stretch',
-        //cor de fundo
-        backgroundColor: 'red',
-        //margem
-        margin: 10,
+        backgroundColor: '#F8F9FA',
+        borderRadius: 12,
+        padding: 15,
+        marginVertical: 8,
+        borderWidth: 1,
+        borderColor: '#E9ECEF',
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 3,
     },
     container_flex: {
-        //valor de preenchimento da área disponível
-        flex: 1,
-        //definição do eixo principal
+        backgroundColor: '#FFFDE7',
+        borderRadius: 12,
+        padding: 15,
+        marginVertical: 8,
+        borderWidth: 1,
+        borderColor: '#FFEE58',
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 3,
+    },
+    linhaBlocos: {
+        flexDirection: 'row-reverse',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: 70,
+    },
+    linhaBlocosFlex: {
         flexDirection: 'row',
-        //cor de fundo
-        backgroundColor: '#FFFACD',
-        //margem
-        margin: 10,
-        
+        height: 60,
     },
     fundo_azul: {
-        //cor de fundo
-        backgroundColor: 'blue'
+        backgroundColor: '#4A90E2', 
     },
     fundo_laranja: {
-        //cor de fundo
-        backgroundColor: 'orange'
+        backgroundColor: '#F5A623', 
     },
     fundo_verde: {
-        //cor de fundo
-        backgroundColor: 'green'
+        backgroundColor: '#7ED321', 
     },
     tamanho_50: {
-        //largura
-        width: 50,
-        //altura
-        height: 50
+        width: 45,
+        height: 45,
     },
     flex_pequeno: {
-        //valor de preenchimento da área disponível
-        flex: 1
+        flex: 1,
     },
     flex_grande: {
-        //valor de preenchimento da área disponível
-        flex: 5
+        flex: 3, 
     },
     borda: {
-        //cor da borda
-        borderColor: 'black',
-        //espessura da borda
-        borderWidth: 5
+        borderColor: '#FFFFFF',
+        borderWidth: 2,
+        borderRadius: 8, 
     }
 });
